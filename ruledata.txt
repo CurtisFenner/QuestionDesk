@@ -1,0 +1,194 @@
+> [det] the a an that this those these most some every each only enough no
+> [det] one two three four five six seven eight nine ten
+
+#commenting!
+
+> [pro] one two three four five six seven eight nine ten twenty this that those these it
+> [pro-sub] i you we he she they
+> [pro-obj] me you us him her them
+
+[pro] -> [noun-phrase]
+
+> [pro-pos] my your our his her its their
+> [pro-pos-obj] mine yours ours his hers its theirs
+
+[pro-pos] -> [det]
+[pro-pos-obj] -> [noun-phrase]
+
+
+[noun-phrase] 's -> [pos]
+[noun-phrase] s' -> [pos]
+
+[pos] -> [det]
+[pos] -> [noun-phrase]
+
+> [comp-adj] worse
+
+
+> [prep] of in on over about worth for at to by from off onto until around across after before during within
+
+[prep] [obj] -> [prep-phrase]
+
+> [noun]  	bucket	dog 	cat 	table	floor	life	state	substance	fluid	cloud 	sky  	body  	lake 	sea
+> [plural]	buckets	dogs	cats	tables	floors	lives	states	substances	fluids	clouds	skies	bodies	lakes	seas
+> [noun]  	person	past 	reaction 	light 	example 	process 	group 	thing 	smell 	color 	taste 	half	
+> [plural]	people	pasts	reactions	lights	examples	processes	groups	things	smells	colors	tastes	halves
+
+> [uncount] water liquid life earth rain land light heat oxidation
+
+[uncount] -> [plural]
+
+> [list-conj] or and nor
+
+[adj] [list-conj] [adj] -> [adj-list]
+[adj] , [list-conj] [adj] -> [adj-list]
+[adj] , [adj-list] -> [adj-list]
+[adj] [list-conj] [adj-list] -> [adj-list]
+[adj-list] -> [f-adj]
+
+
+[(det)noun] [list-conj] [(det)noun] -> [(det)noun-list]
+[(det)noun] , [list-conj] [(det)noun] -> [(det)noun-list]
+[(det)noun] , [(det)noun-list] -> [(det)noun-list]
+
+[det] [(det)noun-list] -> [noun-phrase-list]
+
+[noun-phrase] [list-conj] [noun-phrase] -> [noun-phrase-list]
+[noun-phrase] , [list-conj] [noun-phrase] -> [noun-phrase-list]
+[noun-phrase] , [noun-phrase-list] -> [noun-phrase-list]
+
+
+[noun-phrase-list] -> [noun-phrase]
+
+> [proper] earth
+
+> [adj] red blue black green yellow white grey gray orange pink brown gold silver sharp dull friendly angry nice evil good bad
+> [adj] common important uncommon natural only large big huge tiny little small
+> [adj] fluid frozen solid hot cold cool warm damp dry wet pure impure dirty clean
+
+
+> [adv] very slightly somewhat most almost about naturally sometimes usually likely more less half well only
+
+> [trans-verb] cover covers covered touch touches touched burn burns burned like likes liked has have had
+
+> [intrans-verb] exist exists fall falls
+
+[adv] [full-intrans-verb] -> [full-intrans-verb]
+[full-intrans-verb] [adv] -> [full-intrans-verb]
+[full-intrans-verb] [prep-phrase] -> [full-intrans-verb]
+
+[sub] [full-intrans-verb] -> [declare]
+[trans-verb(obj)] [obj] -> [full-intrans-verb]
+
+[trans-verb] -> [trans-verb(obj)]
+[aux] [trans-verb] -> [trans-verb(obj)]
+[intrans-verb] -> [full-intrans-verb]
+[aux] [intrans-verb] -> [full-intrans-verb]
+
+> [quantity] half
+
+!quantity -> [quantity]
+[adv] [quantity] -> [quantity]
+[quantity] -> [uncount]
+
+> [basic-aux] do did does will may can might could shall would should shouldn't don't won't can't shan't mightn't couldn't wouldn't didn't doesn't 
+[basic-aux] -> [aux]
+[basic-aux] not -> [aux]
+
+more [adj] -> [comp-adj]
+
+less than [quantity] -> [quantity]
+more than [quantity] -> [quantity]
+
+[adv] than [noun-phrase] -> [adv]
+[adv] than [sub] [trans-verb(obj)] -> [adv]
+[adv] than [sub] [cop] -> [adv]
+
+[comp-adj] than [noun-phrase] -> [adj]
+[comp-adj] than [sub] [trans-verb(obj)] -> [adj]
+[comp-adj] than [sub] [cop] -> [adj]
+
+as [adv] as [noun-phrase] -> [adv]
+as [adv] as [sub] [trans-verb(obj)] -> [adv]
+as [adv] as [sub] [cop] -> [adv]
+
+as [adj] as [noun-phrase] -> [adj]
+as [adj] as [sub] [trans-verb(obj)] -> [adj]
+as [adj] as [sub] [cop] -> [adj]
+
+> [cop] is am were was are
+
+> [marker] will has have be been that , ; . " : ' ? ! not as more than
+
+will be -> [cop]
+has been -> [cop]
+have been -> [cop]
+
+[sub] [cop] [f-adj] -> [declare]
+[sub] [cop] [obj] -> [declare]
+[sub] [cop] [adv-adj] -> [declare]
+[sub] [cop] [adj-prep] -> [declare]
+
+[pro-sub] -> [sub]
+[pro-obj] -> [obj]
+
+[noun] [prep-phrase] -> [noun-prep]
+[plural] [prep-phrase] -> [plural-prep]
+
+
+
+[f-adj] [prep-phrase] -> [adj-prep]
+[adv] [adv] -> [adv]
+[adv] [adj] -> [adv-adj]
+[adv] [adj-prep] -> [adj-prep]
+
+[f-adj] [noun] -> [adj-noun]
+[f-adj] [plural] -> [adj-plural]
+[f-adj] [noun-prep] -> [adj-noun]
+[f-adj] [plural-prep] -> [adj-plural]
+
+[noun] -> [(det)noun]
+[adj-noun] -> [(det)noun]
+[noun-prep] -> [(det)noun]
+[plural] -> [(det)noun]
+[plural-prep] -> [(det)noun]
+[adj-plural] -> [(det)noun]
+[plural-prep] -> [(det)noun]
+
+[det] [(det)noun] -> [noun-phrase]
+
+
+[plural] -> [noun-phrase]
+[adj-plural] -> [noun-phrase]
+[plural-prep] -> [noun-phrase]
+[proper] -> [noun-phrase]
+
+[adj] -> [f-adj]
+
+[noun-phrase] -> [sub]
+[noun-phrase] -> [obj]
+
+[declare] -> [sentence]
+[question] -> [sentence]
+
+[adv] [declare] -> [declare]
+
+that [full-intrans-verb] -> [that-clause]
+
+[noun-phrase] [that-clause] -> [noun-phrase]
+
+
+
+# Questions:
+#Yes or no
+[aux] [sub] [full-intrans-verb] ? -> [question]
+[aux] [sub] [cop] [f-adj] ? -> [question]
+[aux] [sub] [cop] [obj] ? -> [question]
+[aux] [sub] [cop] [adv-adj] ? -> [question]
+[aux] [sub] [cop] [adj-prep] ?  -> [question]
+
+[aux] [sub] not [full-intrans-verb] ? -> [question]
+[aux] [sub] not [cop] [f-adj] ? -> [question]
+[aux] [sub] not [cop] [obj] ? -> [question]
+[aux] [sub] not [cop] [adv-adj] ? -> [question]
+[aux] [sub] not [cop] [adj-prep] ?  -> [question]

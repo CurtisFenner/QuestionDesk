@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+	<title>Question Desk</title>
+	<style>
+		body {
+			font-family:"Segoe UI",Arial,sans-serif;
+			font-size:16px;
+			max-width:900px;
+			margin:auto;
+			padding:1em;
+		}
+		input {
+			display:block;
+			width:100%;
+			font-size:16px;
+			font-family:"Segoe UI",Arial,sans-serif;
+		}
+
+		* {
+			outline:none;
+		}
+
+		.labelled {
+			display:inline-block;
+			position:relative;
+			text-align:center;
+		}
+
+		.labelled:after {
+			content:attr(data-label);
+			color:white;
+			background:#FF3366;
+			display:block;
+			top:100%;
+			font-size:70%;
+			text-align:center;
+			margin:1px;
+			padding:2px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Question Desk</h1>
+	<p>Welcome.
+	<p>This is a programming &amp; marketing excercise utilizing computerized techniques and natural language processing to provide answers to queries automatically and instantly. Ask any reasonably simple question or make any request as the automated Question Desk will do its best to answer to you.
+	<p><strong>If you need to speak with someone on the team, please <a href="http://www.adambots.com/contact-us/">contact us here</a>. This form will not let us contact you!</strong></p>
+	<input id="query" autocomplete="off">
+	<div id="response"></div>
+	<script>
+	function main() {
+		function todic(word,type) {
+			dictionary[word] = dictionary[word] || [];
+			if (dictionary[word].indexOf(type) == -1)
+				dictionary[word].push(type);
+		}
+		var request = new XMLHttpRequest();
+		request.open("GET","ruledata.txt",false);
+		request.send();
+		request = request.responseText;
+		var rs = request.trim().split(/(?:(?:#.*)?[\r\n])+/g);
+		for (var i = 0; i < rs.length; i++) {
+			var r = rs[i];
+			r = r.replace(/\s+/g," ").trim();
+			r = r.split(" ");
+			if (r[0] == ">") {
+				var type = r[1];
+				for (var j = 2; j < r.length; j++) {
+					todic(r[j],type);
+				}
+			} else if (r.indexOf("->") >= 0) {
+				var result = r[r.length-1];
+				var from = r.slice(0,r.length-2);
+				Rule(from,result);
+			} else {
+				console.log("Unknown purpose of line in rule file\t",r);
+			}
+		}
+	}
+	</script>
+	<script src="rules.js"></script>
+	<script src="words.js"></script>
+	<script>
+	main();
+	function BoxLabel(phrase) {
+		if (typeof phrase == typeof "string") {
+			return phrase;
+		}
+		var s = "<span class=labelled data-label='" + phrase.type + "'>";
+		for (var i = 0; i < phrase.component.length; i++) {
+			s += BoxLabel(phrase.component[i]);
+		}
+		s += "</span>";
+		return s;
+	}
+
+	query.onkeyup = function(e) {
+		if (e.keyCode == 13) {
+			// Enter was pressed
+			response.innerHTML = "";
+			var ps = Parse(query.value);
+			var output = ["[declare]","[question]"];
+			var os = [];
+			for (var i = 0; i < ps.length; i++) {
+				if (output.indexOf(ps[i].type) >= 0) {
+					os.push(ps[i]);
+				}
+			}
+			ps = os;
+			if (ps.length == 0) {
+				response.innerHTML = "<em>Sorry, your input could not be parsed.</em>";
+			} else {
+				var s = "";
+				for (var i = 0; i < ps.length; i++) {
+					var p = ps[i];
+					s += "<p>" + BoxLabel(p)
+				}
+				response.innerHTML = s;
+			}
+		}
+	}
+	</script>
