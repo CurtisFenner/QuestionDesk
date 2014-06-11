@@ -49,9 +49,9 @@ function parses(wordList,rules,all) {
 		}
 		for (var j = 0; j < entry.length; j++) {
 			var form = entry[j];
-			fragments.push({from:i,next:i+1,type:form,component:[word]});
+			fragments.push({from:i,next:i+1,type:form,component:word,plain:word});
 		}
-		fragments.push({from:i,next:i+1,type: word,component:[word]});
+		fragments.push({from:i,next:i+1,type: word,component:word,plain:word});
 	}
 	var change = true;
 	while (change) {
@@ -66,9 +66,11 @@ function parses(wordList,rules,all) {
 				rs[j].type = rule.result;
 				rs[j].component.reverse();
 				rs[j].serial = [];
+				rs[j].plain = "";
 				for (var k = 0; k < rs[j].component.length; k++) {
 					var f = rs[j].component[k];
 					rs[j].serial.push(fragments.indexOf(f));
+					rs[j].plain += f.plain + " ";
 				}
 				rs[j].serial = rs[j].serial.join(",") + "->" + rule.result;
 				if (addOnce(fragments,rs[j])) {

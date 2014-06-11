@@ -80,6 +80,7 @@
 	</script>
 	<script src="rules.js"></script>
 	<script src="words.js"></script>
+	<script src="answer.js"></script>
 	<script>
 	main();
 	function BoxLabel(phrase) {
@@ -110,7 +111,7 @@
 			if (ps.length == 0) {
 				response.innerHTML = "<em>Sorry, your input could not be parsed.</em>";
 			} else {
-				var s = "";
+				var s = "<p>" + Answer(ps[0]);
 				for (var i = 0; i < ps.length; i++) {
 					var p = ps[i];
 					s += "<p>" + BoxLabel(p)

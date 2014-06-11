@@ -22,6 +22,9 @@ inference["[comp-adj]"] = function(word) {
 inference["[pos]"] = function(word) {
 	return word.endsWith("'s") || word.endsWith("s'");
 }
+inference["[ing]"] = function(word) {
+	return word.endsWith("ing");// && word.replace(/[^aeiou]/gi,"").length > 2;
+}
 
 function Dictionary(word) {
 	if (dictionary[word]) {
@@ -36,7 +39,7 @@ function Dictionary(word) {
 	if (word.endsWith("ingly") && word.length > 7) {
 		return ["adv"];
 	}*/
-	var q = ["[noun]","[adj]","[adv]","[trans-verb]","[intrans-verb]","[uncount]","[comp-adj]"];
+	var q = ["[noun]","[adj]","[adv]","[trans-verb]","[intrans-verb]","[uncount]","[comp-adj]","[ing]","[part]"];
 	var r = [];
 	for (var i = 0; i < q.length; i++) {
 		if (inference[q[i]] && !inference[q[i]](word)) {

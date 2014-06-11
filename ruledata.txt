@@ -69,9 +69,21 @@
 
 > [adv] very slightly somewhat most almost about naturally sometimes usually likely more less half well only
 
-> [trans-verb] cover covers covered touch touches touched burn burns burned like likes liked has have had
+> [trans-verb] cover covers covered touch touches touched burn burns burned like likes liked has have had made
 
-> [intrans-verb] exist exists fall falls
+> [adv] never often frequently soon today tomorrow yesterday now
+
+> [uncount] now today tomorrow yesterday year
+
+> [time] day year week month
+
+[adj] [time] -> [time]
+[det] [time] -> [f-time]
+[f-time] -> [adv]
+
+> [intrans-verb] exist exists fall falls made
+
+> [part] made
 
 [adv] [full-intrans-verb] -> [full-intrans-verb]
 [full-intrans-verb] [adv] -> [full-intrans-verb]
@@ -135,7 +147,7 @@ have been -> [cop]
 [noun] [prep-phrase] -> [noun-prep]
 [plural] [prep-phrase] -> [plural-prep]
 
-
+> [being] are is were am was
 
 [f-adj] [prep-phrase] -> [adj-prep]
 [adv] [adv] -> [adv]
@@ -177,10 +189,16 @@ that [full-intrans-verb] -> [that-clause]
 
 [noun-phrase] [that-clause] -> [noun-phrase]
 
+> [qword] what who when why how where
+[qword] -> [obj]
+> [det] what which
 
+# Present progressive
+[being] [ing] -> [full-intrans-verb]
+[ing] [adv] -> [ing]
 
 # Questions:
-#Yes or no
+# Yes or no
 [aux] [sub] [full-intrans-verb] ? -> [question]
 [aux] [sub] [cop] [f-adj] ? -> [question]
 [aux] [sub] [cop] [obj] ? -> [question]
@@ -192,3 +210,34 @@ that [full-intrans-verb] -> [that-clause]
 [aux] [sub] not [cop] [obj] ? -> [question]
 [aux] [sub] not [cop] [adv-adj] ? -> [question]
 [aux] [sub] not [cop] [adj-prep] ?  -> [question]
+[qword] [full-intrans-verb] [sub] ? -> [question]
+[qword] [cop] [sub] ? -> [question]
+[being] [sub] [ing] ? -> [question]
+[being] [sub] [ing] [obj] ? -> [question]
+[being] [sub] [ing] [obj] [obj] ? -> [question]
+[cop] [sub] [f-adj] ? -> [question]
+[cop] [sub] [adv-adj] ? -> [question]
+[cop] [sub] [obj] ? -> [question]
+[cop] [sub] [obj] [adv] ? -> [question]
+[cop] [sub] [f-adj] [adv] ? -> [question]
+
+# What do you eat?
+[obj] [aux] [sub] [full-intrans-verb] ? -> [question]
+[qword] [aux] [sub] [full-intrans-verb] ? -> [question]
+
+# What is your robot of?
+made of -> [prep]
+[obj] [aux] [sub] [full-intrans-verb] [prep] ? -> [question]
+[qword] [aux] [sub] [full-intrans-verb] [prep] ? -> [question]
+[obj] [aux] [sub] [full-intrans-verb] [prep] [adv] ? -> [question]
+[qword] [aux] [sub] [full-intrans-verb] [prep] [adv] ? -> [question]
+
+[prep-phrase] [being] [sub] ? -> [question]
+[obj] [being] [sub] [prep] ? -> [question]
+[obj] [being] [sub] [part] [prep] ? -> [question]
+[prep-phrase] [being] [sub] [part] [prep] ? -> [question]
+
+[prep-phrase] [being] [sub] [adv] ? -> [question]
+[obj] [being] [sub] [prep] [adv] ? -> [question]
+[obj] [being] [sub] [part] [prep] [adv] ? -> [question]
+[prep-phrase] [being] [sub] [part] [prep] [adv] ? -> [question]
