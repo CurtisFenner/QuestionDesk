@@ -75,7 +75,7 @@
 
 > [uncount] now today tomorrow yesterday year
 
-> [time] day year week month
+> [time] day year week month Monday Tuesday Wednesday Thursday Friday Saturday Sunday evening morning night dawn dusk twilight holiday weekday weekend
 
 [adj] [time] -> [time]
 [det] [time] -> [f-time]

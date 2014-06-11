@@ -25,12 +25,14 @@
 			display:inline-block;
 			position:relative;
 			text-align:center;
+			font-weight:bold;
 		}
 
 		.labelled:after {
+			font-weight:normal;
 			content:attr(data-label);
 			color:white;
-			background:#FF3366;
+			background:gray;
 			display:block;
 			top:100%;
 			font-size:70%;
@@ -45,7 +47,7 @@
 	<p>Welcome.
 	<p>This is a programming &amp; marketing excercise utilizing computerized techniques and natural language processing to provide answers to queries automatically and instantly. Ask any reasonably simple question or make any request as the automated Question Desk will do its best to answer to you.
 	<p><strong>If you need to speak with someone on the team, please <a href="http://www.adambots.com/contact-us/">contact us here</a>. This form will not let us contact you!</strong></p>
-	<input id="query" autocomplete="off">
+	<input id="query" autocomplete="off" value="What kind of energy does your robot use?">
 	<div id="response"></div>
 	<script>
 	function main() {
@@ -105,6 +107,7 @@
 			for (var i = 0; i < ps.length; i++) {
 				if (output.indexOf(ps[i].type) >= 0) {
 					os.push(ps[i]);
+					break;
 				}
 			}
 			ps = os;
